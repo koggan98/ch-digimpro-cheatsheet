@@ -13,3 +13,7 @@
 | $f_x, f_y$      | Focal length                | $f_x = f_y = f$                                                                                        | assume: focal length is the same in both directions   |
 | $c_x, c_y$      | Principal point             |                                                                                                        |                                                       |
 |                 | Object point to image point | $\begin{bmatrix} x_{s,i} \\ y_{s,i} \\ 1 \end{bmatrix} = H_b^c \cdotp \tilde{p}_i^b$                   |                                                       |
+| Hough&nbsp;transform  |
+|  $\rho$   | Proper Line Parametrization| $\rho =x \cos(\theta) + y \sin(\theta)$      | $\theta$: angle between $x$ and line, $\rho$: length of line |
+|$\rho$ |               |$\rho =[x,y]*n$
+|$n$    |normal vector  | $n = [\cos(\theta), \sin(\theta)]^T$   
