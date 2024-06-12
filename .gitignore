@@ -196,3 +196,6 @@ videos/PXL_*.mp4
 
 # Literature, I do not want to have in vcs.
 literature/
+
+# Exclude the findal cheat sheet
+CHEATSHEET.pdf
