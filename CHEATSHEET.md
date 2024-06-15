@@ -7,6 +7,7 @@
 | $\tilde{H_b^c}$ |                             |                                                                                                        |                                                       |
 | $\tilde{p}_i^b$ | Object markers              |                                                                                                        | Coordinates on the planar object                      |
 | $E_b^c$         | Camera extrinsic matrix     | $E_b^c = \begin{bmatrix} R_b^c & t_{cb}^c \\ \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}& 1 \end{bmatrix}$ | Relative pose between object and camera               |
+|$E_c^g$ | Inverse rigid motion matrix | $E_c^g=(E_g^c)^{-1}=\begin{bmatrix} R_g^c&t_{cg}^c\\\vec{0}&1 \end{bmatrix}=\begin{bmatrix} R_c^g&-R_c^gt_{cg}^c\\\vec{0}&1 \end{bmatrix}$
 | $R_b^c$         | Rotation matrix             |   $R_b^c=\begin{bmatrix}0_x & 0_y & 0_z\end{bmatrix}$                                                                                                     |                                                       |
 | $t_{cb}^c$      | Translation vector          |     $t_c^b=p^c-R_b^c*p^b$                                                                                                   |                                                       |
 | $H_b^c$         | Homography matrix           | $H_b^c \backsim\ K_c \cdotp \begin{bmatrix} r^c_{b,x} & r_{b,y}^c & t_{cb}^c \end{bmatrix}$            |                                                       |
@@ -29,3 +30,6 @@ $\epsilon$ | Probability of picking an outlier | $\epsilon = \dfrac{N_{outliers}
 |                 | probability of not picking $s$ inliers in sequence of $n$ trials | $p=(1-(1-\epsilon)^s)^n$
 |                 | probability of picking at least in one of $n$ trials $s$ inliers in sequence | $p_{success}=1-(1-(1-\epsilon)^s)^n$ | for lines 2 , for circles 3 points are needed 
 |                 | expected number of trials needed | $n=\dfrac{log(1-p_{success})}{log(1-(1-\epsilon)^s)}$ | 
+Geometric transformation
+$\tilde{x}$|Intersection of two lines| $\tilde{x}=\tilde{I_1}\times \tilde{I_2}$|cross product of two lines defines their intersection
+$\tilde{I}$|two points lie on the line| $\tilde{I}=\tilde{x_1}\times \tilde{x_2}$|cross product of two points define their collective line
