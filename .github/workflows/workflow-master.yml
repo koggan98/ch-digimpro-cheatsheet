@@ -30,13 +30,18 @@ jobs:
       run: pandoc CHEATSHEET.md -t asciidoc -o CHEATSHEET.adoc
 
     - name: Convert AsciiDoc to PDF
-      run: docker run --rm --privileged -u $(id -u):$(id -g) -v `pwd`:/documents asciidoctor/docker-asciidoctor asciidoctor-pdf -a stem -r asciidoctor-mathematical CHEATSHEET.adoc
+      run: docker run --rm --privileged -u $(id -u):$(id -g) -v `pwd`:/documents asciidoctor/docker-asciidoctor asciidoctor-pdf -a pdf-page-layout=landscape -a stem -r asciidoctor-mathematical CHEATSHEET.adoc
+    
+    - name: Copy to output directory
+      run: |-
+        mkdir -p documents
+        mv CHEATSHEET.pdf ./documents
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
+        publish_dir: ./documents
         force_orphan: true
         user_name: 'github-ci[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
