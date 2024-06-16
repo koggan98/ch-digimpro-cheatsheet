@@ -11,6 +11,8 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
@@ -33,8 +35,12 @@ jobs:
     - name: Convert AsciiDoc to PDF
       run: asciidoctor-pdf CHEATSHEET.adoc -o CHEATSHEET.pdf
 
-    - name: Upload PDF artifact
-      uses: actions/upload-artifact@v3
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        name: cheatsheet-pdf
-        path: CHEATSHEET.pdf
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
+        force_orphan: true
+        user_name: 'github-ci[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        commit_message: 'Publish to gh-pages'
