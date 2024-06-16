@@ -11,6 +11,8 @@ https://www.pandoc.org/
 Pandoc is used to generate a PDF file out of the markdown
 Run the make.sh to generate the PDF
 
+Link to build pdf: https://doofmars.github.io/ch-digimpro-cheatsheet/CHEATSHEET.pdf
+
 ## Editing
 
 To edit either use visual studio code as Intellij does currently not support math $env$
