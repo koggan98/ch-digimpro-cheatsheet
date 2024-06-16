@@ -1,0 +1,40 @@
+name: Convert CHEATSHEET.md to PDF
+
+on:
+  push:
+    paths:
+      - CHEATSHEET.md
+  pull_request:
+    paths:
+      - CHEATSHEET.md
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install pandoc
+      run: sudo apt-get install -y pandoc
+
+    - name: Convert Markdown to AsciiDoc
+      run: pandoc CHEATSHEET.md -t asciidoc -o CHEATSHEET.adoc
+
+    - name: Install Asciidoctor PDF
+      run: sudo apt-get install -y asciidoctor asciidoctor-pdf
+
+    - name: Convert AsciiDoc to PDF
+      run: asciidoctor-pdf CHEATSHEET.adoc -o CHEATSHEET.pdf
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: cheatsheet-pdf
+        path: CHEATSHEET.pdf
