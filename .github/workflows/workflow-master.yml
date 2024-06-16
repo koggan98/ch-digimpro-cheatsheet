@@ -2,11 +2,11 @@ name: Convert CHEATSHEET.md to PDF
 
 on:
   push:
-    paths:
-      - CHEATSHEET.md
+    branches:
+      - '**'        # matches every branch
   pull_request:
-    paths:
-      - CHEATSHEET.md
+    branches:
+      - master
 
 jobs:
   convert:
