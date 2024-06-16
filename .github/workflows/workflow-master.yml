@@ -29,11 +29,8 @@ jobs:
     - name: Convert Markdown to AsciiDoc
       run: pandoc CHEATSHEET.md -t asciidoc -o CHEATSHEET.adoc
 
-    - name: Install Asciidoctor PDF
-      run: sudo apt-get install -y asciidoctor asciidoctor-pdf
-
     - name: Convert AsciiDoc to PDF
-      run: asciidoctor-pdf CHEATSHEET.adoc -o CHEATSHEET.pdf
+      run: docker run --rm --privileged -u $(id -u):$(id -g) -v `pwd`:/documents asciidoctor/docker-asciidoctor asciidoctor-pdf -a stem -r asciidoctor-mathematical CHEATSHEET.adoc
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
