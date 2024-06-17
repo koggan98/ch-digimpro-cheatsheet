@@ -37,4 +37,5 @@ Matrix basics
 $R^{-1}$ | Inverse rotational matrix | $R^{-1} = R^T$
 $R_x$ | Rotational matrix around x | $R_x=\begin{bmatrix} 1&0&0\\0&\cos&-\sin\\0&\sin&\cos  \end{bmatrix}$
 $R_y$ | Rotational matrix around x | $R_y=\begin{bmatrix} \cos&0&\sin\\0&1&0\\-\sin&0&\cos  \end{bmatrix}$
-$R_z$ | Rotational matrix around x | $R_z=\begin{bmatrix} \cos&-\sin&0\\\sin&\cos&0\\0&0&1 \end{bmatrix}$
+$R_z$ | Rotational matrix around x | $R_z=\begin{bmatrix} \cos&-\sin&0\\\sin&\cos&0\\0&0&1 \end{bmatrix}$|
+|
