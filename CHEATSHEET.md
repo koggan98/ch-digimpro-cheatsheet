@@ -1,4 +1,4 @@
-| Symbol          | Name                        | formula                                                                                                | Description / Example                                 |
+| Symbol          | Name                        | Formula                                                                                                | Description / Example                                 |
 |-----------------|-----------------------------|--------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
 | Homography      |
 | $\tilde{X_i^c}$ | Image coordinates           | $\tilde{X_i^c} \backsim\ \tilde{H_b^c} \cdotp \tilde{p}_i^b$                                           |                                                       |
