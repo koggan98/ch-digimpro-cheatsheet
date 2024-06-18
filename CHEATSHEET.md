@@ -7,7 +7,7 @@
 | $\tilde{H_b^c}$ |                             |                                                                                                        |                                                       |
 | $\tilde{p}_i^b$ | Object markers              |                                                                                                        | Coordinates on the planar object                      |
 | $E_b^c$         | Camera extrinsic matrix     | $E_b^c = \begin{bmatrix} R_b^c & t_{cb}^c \\ \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}& 1 \end{bmatrix}$ | Relative pose between object and camera               |
-|$E_c^g$ | Inverse rigid motion matrix | $E_c^g=(E_g^c)^{-1}=\begin{bmatrix} R_g^c&t_{cg}^c\\\vec{0}&1 \end{bmatrix}=\begin{bmatrix} R_c^g&-R_c^gt_{cg}^c\\\vec{0}&1 \end{bmatrix}$
+|$E_c^g$ | Inverse rigid motion matrix | $E_c^g=(E_g^c)^{-1}=\begin{bmatrix} R_g^c&t_{cg}^c\\\vec{0}&1 \end{bmatrix}=$ $\begin{bmatrix} R_c^g&-R_c^gt_{cg}^c\\\vec{0}&1 \end{bmatrix}$
 | $R_b^c$         | Rotation matrix             |   $R_b^c=\begin{bmatrix}0_x & 0_y & 0_z\end{bmatrix}$                                                                                                     |                                                       |
 | $t_{cb}^c$      | Translation vector          | $t_c^b=p^c-R_b^c*p^b$                                                                                                   |                                                       |
 | $H_b^c$         | Homography matrix           | $H_b^c \backsim\ K_c \cdotp \begin{bmatrix} r^c_{b,x} & r_{b,y}^c & t_{cb}^c \end{bmatrix}$            |                                                       |
