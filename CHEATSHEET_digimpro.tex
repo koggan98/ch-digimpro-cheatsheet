@@ -61,353 +61,347 @@
 
 \begin{document}
 
-\renewcommand*{\arraystretch}{1.2}
-\begin{longtable}[]{p{0.06\textwidth}p{0.18\textwidth}p{0.23\textwidth}p{0.45\textwidth}}
+\begin{longtable}[]{p{0.04\textwidth}p{0.30\textwidth}p{0.23\textwidth}p{0.38\textwidth}}
 \toprule
-\textbf{Symbol}\strut
+\textbf{Symbol}
  &
-\textbf{Name}\strut
+\textbf{Name}
  &
-\textbf{Formula}\strut
+\textbf{Formula}
  &
-\textbf{Description / Example}\strut
+\textbf{Description / Example}
 \tabularnewline
 \midrule
 \endhead
-\multicolumn{4}{c}{\textbf{Homography\strut}}
+\multicolumn{4}{c}{\textbf{Homography}}
 \hline\tabularnewline
-\(\tilde{X_i^c}\)\strut
+\(\tilde{X_i^c}\)
  &
-Image coordinates\strut
+Image coordinates
  &
-\(\tilde{X_i^c} \backsim\ \tilde{H_b^c} \cdotp \tilde{p}_i^b\)\strut
+\(\tilde{X_i^c} \backsim\ \tilde{H_b^c} \cdotp \tilde{p}_i^b\)
  &
-\strut
+
 \hline\tabularnewline
-\(K_c\)\strut
+\(K_c\)
  &
-Calibration matrix, Camera matrix\strut
+Calibration matrix, Camera matrix
  &
-\(K_c = \begin{bmatrix} f_x & 0 & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}\)\strut
+\(K_c = \begin{bmatrix} f_x & 0 & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}\)
  &
-If \(c_x=c_y=0\) the camera produces centerd images\strut
+If \(c_x=c_y=0\) the camera produces centerd images
 \hline\tabularnewline
-\(\tilde{x}\)\strut
+\(\tilde{x}\)
  &
-homogenous transformation\strut
+homogenous transformation
  &
-\(\tilde{x}= K_c*\begin{bmatrix} x\\y\\z \end{bmatrix}\)\strut
+\(\tilde{x}= K_c*\begin{bmatrix} x\\y\\z \end{bmatrix}\)
  &
-for direction of light rays f.e.\strut
+for direction of light rays f.e.
 \hline\tabularnewline
-\(\tilde{p}_i^b\)\strut
+\(\tilde{p}_i^b\)
  &
-Object point\strut
+Object point
  &
-\strut
+
  &
-Coordinates on the planar object\strut
+Coordinates on the planar object
+
 \hline\tabularnewline
-\(E_b^c\)\strut
+\(E_b^c\)
  &
-Camera extrinsic matrix\strut
+Camera extrinsic matrix
  &
-\(E_b^c = \begin{bmatrix} R_b^c & t_{cb}^c \\ \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}& 1 \end{bmatrix}\)\strut
+\(E_b^c = \begin{bmatrix} R_b^c & t_{cb}^c \\ \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}& 1 \end{bmatrix}\)
  &
-Relative pose between object and camera\strut
+Relative pose between object and camera
 \hline\tabularnewline
-\(E_c^g\)\strut
+\(E_c^g\)
  &
-Inverse rigid motion matrix\strut
+Inverse rigid motion matrix
  &
 \multicolumn{2}{l}{
 \(E_c^g=(E_g^c)^{-1}=\begin{bmatrix} R_g^c&t_{cg}^c\\\vec{0}&1 \end{bmatrix}=\)
-\(\begin{bmatrix} R_c^g&-R_c^gt_{cg}^c\\\vec{0}&1 \end{bmatrix}\)\strut}
+\(\begin{bmatrix} R_c^g&-R_c^gt_{cg}^c\\\vec{0}&1 \end{bmatrix}\)}
 \hline\tabularnewline
-\(R_b^c\)\strut
+\(R_b^c\)
  &
-Rotation matrix\strut
+Rotation matrix
  &
-\(R_b^c=\begin{bmatrix}r_x & r_y & r_z\end{bmatrix}\)\strut
+\(R_b^c=\begin{bmatrix}r_x & r_y & r_z\end{bmatrix}\)
  &
-\strut
+
 \hline\tabularnewline
-\(t_{cb}^c\)\strut
+\(t_{cb}^c\)
  &
-Translation vector\strut
+Translation vector
  &
-\(t_c^b=p^c-R_b^c*p^b\)\strut
+\(t_c^b=p^c-R_b^c*p^b\)
  &
-\strut
+
 \hline\tabularnewline
-\(\vec{E}_g\)\strut
+\(\vec{E}_g\)
  &
-Coordinate frame basis\strut
+Coordinate frame basis
  &
-\(\vec{E}_g = \begin{bmatrix} \vec{e}_{g,x} & \vec{e}_{g,y} & \vec{e}_{g,z} \end{bmatrix}\)\strut
+\(\vec{E}_g = \begin{bmatrix} \vec{e}_{g,x} & \vec{e}_{g,y} & \vec{e}_{g,z} \end{bmatrix}\)
  &
-A coordinate frame consists of a basis and and an origin\strut
+A coordinate frame consists of a basis and and an origin
 \hline\tabularnewline
-\(\vec{o}_g\)\strut
+\(\vec{o}_g\)
  &
-Origin of the coordinate frame\strut
+Origin of the coordinate frame
  &
-\(\vec{o}\)\strut
+\(\vec{o}\)
  &
-\strut
+
 \hline\tabularnewline
-\(\vec{p}\)\strut
+\(\vec{p}\)
  &
-Point in the coordinate frame\strut
+Point in the coordinate frame
  &
-\(\vec{p} = \vec{e}_{g,x} \cdotp p_x^g + \vec{e}_{g,y} \cdotp p_y^g + \vec{e}_{g,z} \cdotp p_z^g + \vec{o}_g\)\strut
+\(\vec{p} = \vec{e}_{g,x} \cdotp p_x^g + \vec{e}_{g,y} \cdotp p_y^g + \vec{e}_{g,z} \cdotp p_z^g + \vec{o}_g\)
  &
-\strut
+
 \hline\tabularnewline
-\(\vec{p}\)\strut
+\(\vec{p}\)
  &
-Point in the coordinate frame\strut
+Point in the coordinate frame
  &
-\(\vec{p} = \vec{E}_g \cdotp p^g + \vec{o}_g\)\strut
+\(\vec{p} = \vec{E}_g \cdotp p^g + \vec{o}_g\)
  &
-\strut
+
 \hline\tabularnewline
-\(H_b^c\)\strut
+\(H_b^c\)
  &
-Homography matrix\strut
+Homography matrix
  &
-\(H_b^c \backsim\ K_c \cdotp \begin{bmatrix} r^c_{b,x} & r_{b,y}^c & t_{cb}^c \end{bmatrix}\)\strut
+\(H_b^c \backsim\ K_c \cdotp \begin{bmatrix} r^c_{b,x} & r_{b,y}^c & t_{cb}^c \end{bmatrix}\)
  &
-\strut
+
 \hline\tabularnewline
-\(r_{b,x}^c\)\strut
+\(r_{b,x}^c\)
  &
-Rotation vector x\strut
+Rotation vector x
  &
-\(r_{b,x}^c = \begin{bmatrix} 0 & -t_{cb,z}^c & t_{cb,y}^c \end{bmatrix}\)\strut
+\(r_{b,x}^c = \begin{bmatrix} 0 & -t_{cb,z}^c & t_{cb,y}^c \end{bmatrix}\)
  &
-\strut
+
 \hline\tabularnewline
-\strut
+
  &
-Object point to image point\strut
+Object point to image point
  &
-\(\begin{bmatrix} x_{s,i} \\ y_{s,i} \\ 1 \end{bmatrix} = H_b^c \cdotp \tilde{p}_i^b\)\strut
+\(\begin{bmatrix} x_{s,i} \\ y_{s,i} \\ 1 \end{bmatrix} = H_b^c \cdotp \tilde{p}_i^b\)
  &
-\strut
+
 \hline\tabularnewline
-\multicolumn{4}{c}{\textbf{Hough~transform}\strut}
+\multicolumn{4}{c}{\textbf{Hough~transform}}
 \hline\tabularnewline
-\(x_i, y_i\)\strut
+\(x_i, y_i\)
  &
-Image space coordinates\strut
+Image space coordinates
  &
-\(y_i = m \cdotp x_i + c \Leftrightarrow c = - m \cdotp x_i + y_i\)\strut
+\(y_i = m \cdotp x_i + c \Leftrightarrow c = - m \cdotp x_i + y_i\)
  &
-Converted to parameter space, lines\strut
+Converted to parameter space, lines
 \hline\tabularnewline
-\(\theta\)\strut
+\(\theta\)
  &
-Angle of point\strut
+Angle of point
  &
-\(\theta\)\strut
+\(\theta\)
  &
-angle between \(x\) and line in parameter space\strut
+angle between \(x\) and line in parameter space
 \hline\tabularnewline
-\(\rho\)\strut
+\(\rho\)
  &
-Proper Line Parametrization\strut
+Proper Line Parametrization
  &
-\(\rho = x \cos(\theta) + y \sin(\theta)\)\strut
+\(\rho = x \cos(\theta) + y \sin(\theta)\)
  &
-length of line\strut
+length of line
 \hline\tabularnewline
-\(\rho\)\strut
+\(\rho\)
  &
-\strut
+
  &
-\(\rho =\begin{bmatrix}x \\ y\end{bmatrix}^t \cdot n\)\strut
+\(\rho =\begin{bmatrix}x \\ y\end{bmatrix}^t \cdot n\)
  &
-Test if a point is on a line\strut
+Test if a point is on a line
 \hline\tabularnewline
-\(n\)\strut
+\(n\)
  &
-normal vector\strut
+normal vector
  &
-\(n = \begin{bmatrix} \cos(\theta) \\ \sin(\theta)\end{bmatrix}\)\strut
+\(n = \begin{bmatrix} \cos(\theta) \\ \sin(\theta)\end{bmatrix}\)
  &
-Defined by the \(\theta\) angle\strut
+Defined by the \(\theta\) angle
 \hline\tabularnewline
-\multicolumn{4}{c}{\textbf{RANSAC~probabilities}\strut}
+\multicolumn{4}{c}{\textbf{RANSAC~probabilities}}
 \hline\tabularnewline
-\(\epsilon\)\strut
+\(\epsilon\)
  &
-Probability of picking an outlier\strut
+Probability of picking an outlier
  &
-\(\epsilon = \dfrac{N_{outliers}}{N_{inliers} + N_{outliers}}\)\strut
+\(\epsilon = \dfrac{N_{outliers}}{N_{inliers} + N_{outliers}}\)
  &
-with \(N\) = no of, \(s\) = points, \(n\) = no. of trials\strut
+with \(N\) = no of, \(s\) = points, \(n\) = no. of trials
 \hline\tabularnewline
-\strut
+
  &
-probability of picking individual inlier\strut
+probability of picking individual inlier
  &
-\(p=1-\epsilon\)\strut
+\(p=1-\epsilon\)
  &
-\strut
+
 \hline\tabularnewline
-\strut
+
  &
-probability of picking \(s\) inliers in sequence\strut
+probability of picking \(s\) inliers in sequence
  &
-\(p=(1-\epsilon)^s\)\strut
+\(p=(1-\epsilon)^s\)
  &
-\strut
+
 \hline\tabularnewline
-\strut
+
  &
-probability of not picking \(s\) inliers in sequence\strut
+probability of not picking \(s\) inliers in sequence
  &
-\(p=1-(1-\epsilon)^s\)\strut
+\(p=1-(1-\epsilon)^s\)
  &
-\strut
+
 \hline\tabularnewline
-\strut
+
  &
 probability of not picking \(s\) inliers in sequence of \(n\)
-trials\strut
+trials
  &
-\(p=(1-(1-\epsilon)^s)^n\)\strut
+\(p=(1-(1-\epsilon)^s)^n\)
  &
-\strut
+
 \hline\tabularnewline
-\strut
+
  &
 probability of picking at least in one of \(n\) trials \(s\) inliers in
-sequence\strut
+sequence
  &
-\(p_{success}=1-(1-(1-\epsilon)^s)^n\)\strut
+\(p_{success}=1-(1-(1-\epsilon)^s)^n\)
  &
-for lines 2 , for circles 3 points are needed\strut
+for lines 2 , for circles 3 points are needed
 \hline\tabularnewline
-\strut
+
  &
-expected number of trials needed\strut
+expected number of trials needed
  &
-\(n=\dfrac{log(1-p_{success})}{log(1-(1-\epsilon)^s)}\)\strut
+\(n=\dfrac{log(1-p_{success})}{log(1-(1-\epsilon)^s)}\)
  &
-\strut
+
 \hline\tabularnewline
-\multicolumn{4}{c}{\textbf{Geometric transformation\strut}}
+\multicolumn{4}{c}{\textbf{Geometric transformation}}
 \hline\tabularnewline
-\(\tilde{x}\)\strut
+\(\tilde{x}\)
  &
-Intersection of two lines\strut
+Intersection of two lines
  &
-\(\tilde{x}=\tilde{I_1}\times \tilde{I_2}\)\strut
+\(\tilde{x}=\tilde{I_1}\times \tilde{I_2}\)
  &
-cross product of two lines defines their intersection\strut
+cross product of two lines defines their intersection
 \hline\tabularnewline
-\(\tilde{I}\)\strut
+\(\tilde{I}\)
  &
-two points lie on the line\strut
+two points lie on the line
  &
-\(\tilde{I}=\tilde{x_1}\times \tilde{x_2}\)\strut
+\(\tilde{I}=\tilde{x_1}\times \tilde{x_2}\)
  &
-cross product of two points define their collective line\strut
+cross product of two points define their collective line
 \hline\tabularnewline
-Matrix basics\strut
- &
-\strut
- &
-\strut
- &
-\strut
+\multicolumn{4}{c}{\textbf{Matrix basics}}
 \hline\tabularnewline
-\(E\)\strut
+\(E\)
  &
-unit matrix\strut
+unit matrix
  &
-\(\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}\)\strut
+\(\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}\)
  &
-\strut
+
 \hline\tabularnewline
-\(R^{-1}\)\strut
+\(R^{-1}\)
  &
-Inverse rotational matrix\strut
+Inverse rotational matrix
  &
-\(R^{-1} = R^T\)\strut
+\(R^{-1} = R^T\)
  &
-\strut
+
 \hline\tabularnewline
-\(R_x\)\strut
+\(R_x\)
  &
-Rotational matrix around x\strut
+Rotational matrix around x
  &
-\(R_x=\begin{bmatrix} 1&0&0\\0&\cos&-\sin\\0&\sin&\cos \end{bmatrix}\)\strut
+\(R_x=\begin{bmatrix} 1&0&0\\0&\cos&-\sin\\0&\sin&\cos \end{bmatrix}\)
  &
-\strut
+
 \hline\tabularnewline
-\(R_y\)\strut
+\(R_y\)
  &
-Rotational matrix around x\strut
+Rotational matrix around x
  &
-\(R_y=\begin{bmatrix} \cos&0&\sin\\0&1&0\\-\sin&0&\cos \end{bmatrix}\)\strut
+\(R_y=\begin{bmatrix} \cos&0&\sin\\0&1&0\\-\sin&0&\cos \end{bmatrix}\)
  &
-\strut
+
 \hline\tabularnewline
-\(R_z\)\strut
+\(R_z\)
  &
-Rotational matrix around x\strut
+Rotational matrix around x
  &
-\(R_z=\begin{bmatrix} \cos&-\sin&0\\\sin&\cos&0\\0&0&1 \end{bmatrix}\)\strut
+\(R_z=\begin{bmatrix} \cos&-\sin&0\\\sin&\cos&0\\0&0&1 \end{bmatrix}\)
  &
-\strut
+
 \hline\tabularnewline
-Camera calculations\strut
+Camera calculations
  &
-\strut
+
  &
-\strut
+
  &
-\strut
+
 \hline\tabularnewline
-\(F\)\strut
+\(F\)
  &
-Focal length in {[}\(mm\){]}\strut
+Focal length in {[}\(mm\){]}
  &
-\(F=\dfrac{L*x_{chip}}{2*W}\)\strut
+\(F=\dfrac{L*x_{chip}}{2*W}\)
  &
 \(L=\) Length from sensor to object, \(W=\) Width from sensor to object,
-all in {[}\(mm\){]}\strut
+all in {[}\(mm\){]}
 \hline\tabularnewline
-\(f_x\)\strut
+\(f_x\)
  &
-Focal length in {[}\(\dfrac{pixel}{mm}\){]}\strut
+Focal length in {[}\(\dfrac{pixel}{mm}\){]}
  &
-\(f_x = \dfrac{F*x_{pixel}}{x_{chip}}\)\strut
+\(f_x = \dfrac{F*x_{pixel}}{x_{chip}}\)
  &
 \(x_{pixel}=\) pixel in \(x\)-direction \(x_{chip}=\) length of sensor
 chip in \(x\)-direction, analog for \(f_y\) with \(y_{pixel}\) and
-\(y_{chip}\)\strut
+\(y_{chip}\)
 \hline\tabularnewline
-\(f_x, f_y\)\strut
+\(f_x, f_y\)
  &
-Focal length (Assumption)\strut
+Focal length (Assumption)
  &
-\(f_x = f_y = f\)\strut
+\(f_x = f_y = f\)
  &
 In some calcuations just assume: focal length is the same in both
-directions\strut
+directions
 \hline\tabularnewline
-\(c_x, c_y\)\strut
+\(c_x, c_y\)
  &
-image center coordinates\strut
+image center coordinates
  &
-\(c_x=\dfrac{x_{pixel}}{2}\)\strut
+\(c_x=\dfrac{x_{pixel}}{2}\)
  &
 optical axis pointing perpendicularly through sensor chip center, analog
-for \(f_y\) with \(y_{pixel}\) and \(y_{chip}\)\strut
+for \(f_y\) with \(y_{pixel}\) and \(y_{chip}\)
 \tabularnewline
 \bottomrule
 \end{longtable}
