@@ -1,0 +1,491 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage[fontsize=7pt]{fontsize}
+
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+\usepackage{unicode-math}
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+% Define a variable
+\newcommand{\columnA}{0.06}
+\newcommand{\columnB}{0.18}
+\newcommand{\columnC}{0.33}
+\newcommand{\columnD}{0.33}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\renewcommand*{\arraystretch}{1.6}
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\begin{minipage}[b]{\columnA\columnwidth}\raggedright
+\textbf{Symbol}\strut
+\end{minipage} & \begin{minipage}[b]{\columnB\columnwidth}\raggedright
+\textbf{Name}\strut
+\end{minipage} & \begin{minipage}[b]{\columnC\columnwidth}\raggedright
+\textbf{Formula}\strut
+\end{minipage} & \begin{minipage}[b]{\columnD\columnwidth}\raggedright
+\textbf{Description / Example}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+Homography\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\tilde{X_i^c}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Image coordinates\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\tilde{X_i^c} \backsim\ \tilde{H_b^c} \cdotp \tilde{p}_i^b\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(K_c\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Calibration matrix, Camera matrix\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(K_c = \begin{bmatrix} f_x & 0 & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+If \(c_x=c_y=0\) the camera produces centerd images\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\tilde{x}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+homogenous transformation\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\tilde{x}= K_c*\begin{bmatrix} x\\y\\z \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+for direction of light rays f.e.\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\tilde{p}_i^b\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Object point\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+Coordinates on the planar object\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(E_b^c\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Camera extrinsic matrix\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(E_b^c = \begin{bmatrix} R_b^c & t_{cb}^c \\ \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}& 1 \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+Relative pose between object and camera\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(E_c^g\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Inverse rigid motion matrix\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(E_c^g=(E_g^c)^{-1}=\begin{bmatrix} R_g^c&t_{cg}^c\\\vec{0}&1 \end{bmatrix}=\)
+\(\begin{bmatrix} R_c^g&-R_c^gt_{cg}^c\\\vec{0}&1 \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(R_b^c\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Rotation matrix\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(R_b^c=\begin{bmatrix}r_x & r_y & r_z\end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(t_{cb}^c\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Translation vector\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(t_c^b=p^c-R_b^c*p^b\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\vec{E}_g\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Coordinate frame basis\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\vec{E}_g = \begin{bmatrix} \vec{e}_{g,x} & \vec{e}_{g,y} & \vec{e}_{g,z} \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+A coordinate frame consists of a basis and and an origin\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\vec{o}_g\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Origin of the coordinate frame\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\vec{o}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\vec{p}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Point in the coordinate frame\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\vec{p} = \vec{e}_{g,x} \cdotp p_x^g + \vec{e}_{g,y} \cdotp p_y^g + \vec{e}_{g,z} \cdotp p_z^g + \vec{o}_g\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\vec{p}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Point in the coordinate frame\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\vec{p} = \vec{E}_g \cdotp p^g + \vec{o}_g\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(H_b^c\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Homography matrix\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(H_b^c \backsim\ K_c \cdotp \begin{bmatrix} r^c_{b,x} & r_{b,y}^c & t_{cb}^c \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(r_{b,x}^c\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Rotation vector x\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(r_{b,x}^c = \begin{bmatrix} 0 & -t_{cb,z}^c & t_{cb,y}^c \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Object point to image point\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\begin{bmatrix} x_{s,i} \\ y_{s,i} \\ 1 \end{bmatrix} = H_b^c \cdotp \tilde{p}_i^b\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+Hough~transform\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(x_i, y_i\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Image space coordinates\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(y_i = m \cdotp x_i + c \Leftrightarrow c = - m \cdotp x_i + y_i\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+Converted to parameter space, lines\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\theta\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Angle of point\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\theta\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+angle between \(x\) and line in parameter space\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\rho\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Proper Line Parametrization\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\rho = x \cos(\theta) + y \sin(\theta)\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+length of line\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\rho\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\rho =\begin{bmatrix}x \\ y\end{bmatrix}^t \cdot n\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+Test if a point is on a line\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(n\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+normal vector\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(n = \begin{bmatrix} \cos(\theta) \\ \sin(\theta)\end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+Defined by the \(\theta\) angle\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+RANSAC~probabilities\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\epsilon\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Probability of picking an outlier\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\epsilon = \dfrac{N_{outliers}}{N_{inliers} + N_{outliers}}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+with \(N\) = no of, \(s\) = points, \(n\) = no. of trials\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+probability of picking individual inlier\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(p=1-\epsilon\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+probability of picking \(s\) inliers in sequence\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(p=(1-\epsilon)^s\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+probability of not picking \(s\) inliers in sequence\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(p=1-(1-\epsilon)^s\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+probability of not picking \(s\) inliers in sequence of \(n\)
+trials\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(p=(1-(1-\epsilon)^s)^n\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+probability of picking at least in one of \(n\) trials \(s\) inliers in
+sequence\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(p_{success}=1-(1-(1-\epsilon)^s)^n\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+for lines 2 , for circles 3 points are needed\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+expected number of trials needed\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(n=\dfrac{log(1-p_{success})}{log(1-(1-\epsilon)^s)}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+Geometric transformation\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\tilde{x}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Intersection of two lines\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\tilde{x}=\tilde{I_1}\times \tilde{I_2}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+cross product of two lines defines their intersection\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(\tilde{I}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+two points lie on the line\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\tilde{I}=\tilde{x_1}\times \tilde{x_2}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+cross product of two points define their collective line\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+Matrix basics\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(E\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+unit matrix\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(R^{-1}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Inverse rotational matrix\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(R^{-1} = R^T\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(R_x\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Rotational matrix around x\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(R_x=\begin{bmatrix} 1&0&0\\0&\cos&-\sin\\0&\sin&\cos \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(R_y\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Rotational matrix around x\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(R_y=\begin{bmatrix} \cos&0&\sin\\0&1&0\\-\sin&0&\cos \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(R_z\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Rotational matrix around x\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(R_z=\begin{bmatrix} \cos&-\sin&0\\\sin&\cos&0\\0&0&1 \end{bmatrix}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+Camera calculations\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(F\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Focal length in {[}\(mm\){]}\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(F=\dfrac{L*x_{chip}}{2*W}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\(L=\) Length from sensor to object, \(W=\) Width from sensor to object,
+all in {[}\(mm\){]}\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(f_x\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Focal length in {[}\(\dfrac{pixel}{mm}\){]}\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(f_x = \dfrac{F*x_{pixel}}{x_{chip}}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+\(x_{pixel}=\) pixel in \(x\)-direction \(x_{chip}=\) length of sensor
+chip in \(x\)-direction, analog for \(f_y\) with \(y_{pixel}\) and
+\(y_{chip}\)\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(f_x, f_y\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+Focal length (Assumption)\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(f_x = f_y = f\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+In some calcuations just assume: focal length is the same in both
+directions\strut
+\end{minipage}\hline\tabularnewline
+\begin{minipage}[t]{\columnA\columnwidth}\raggedright
+\(c_x, c_y\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnB\columnwidth}\raggedright
+image center coordinates\strut
+\end{minipage} & \begin{minipage}[t]{\columnC\columnwidth}\raggedright
+\(c_x=\dfrac{x_{pixel}}{2}\)\strut
+\end{minipage} & \begin{minipage}[t]{\columnD\columnwidth}\raggedright
+optical axis pointing perpendicularly through sensor chip center, analog
+for \(f_y\) with \(y_{pixel}\) and \(y_{chip}\)\strut
+\end{minipage}\hline\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{document}
