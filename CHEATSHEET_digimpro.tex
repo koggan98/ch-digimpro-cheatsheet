@@ -1,0 +1,406 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage[fontsize=8pt]{fontsize}
+
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{colortbl}
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.73}
+\arrayrulecolor{gray}
+\begin{longtable}[]{p{0.04\textwidth}p{0.29\textwidth}p{0.24\textwidth}p{0.38\textwidth}}
+\toprule
+\textbf{Symbol}
+ &
+\textbf{Name}
+ &
+\textbf{Formula}
+ &
+\textbf{Description / Example}
+\tabularnewline
+\midrule
+\endhead
+\multicolumn{4}{c}{\textbf{Homography}}
+\tabularnewline\hline
+\(\tilde{X_i^c}\)
+ &
+Image coordinates
+ &
+\(\tilde{X_i^c} \backsim\ \tilde{H_b^c} \cdotp \tilde{p}_i^b\)
+ &
+
+\tabularnewline\hline
+\(K_c\)
+ &
+Calibration matrix, Camera matrix
+ &
+\(K_c = \begin{bmatrix} f_x & 0 & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}\)
+ &
+If \(c_x=c_y=0\) the camera produces centerd images
+\tabularnewline\hline
+\(\tilde{x}\)
+ &
+homogenous transformation
+ &
+\(\tilde{x}= K_c*\begin{bmatrix} x\\y\\z \end{bmatrix}\)
+ &
+for direction of light rays f.e.
+\tabularnewline\hline
+\(\tilde{p}_i^b\)
+ &
+Object point
+ &
+
+ &
+Coordinates on the planar object
+
+\tabularnewline\hline
+\(E_b^c\)
+ &
+Camera extrinsic matrix
+ &
+\(E_b^c = \begin{bmatrix} R_b^c & t_{cb}^c \\ \begin{bmatrix} 0 & 0 & 0 \end{bmatrix}& 1 \end{bmatrix}\)
+ &
+Relative pose between object and camera
+\tabularnewline\hline
+\(E_c^g\)
+ &
+Inverse rigid motion matrix
+ &
+\multicolumn{2}{l}{
+\(E_c^g=(E_g^c)^{-1}=\begin{bmatrix} R_g^c&t_{cg}^c\\\vec{0}&1 \end{bmatrix}=\)
+\(\begin{bmatrix} R_c^g&-R_c^gt_{cg}^c\\\vec{0}&1 \end{bmatrix}\)}
+\tabularnewline\hline
+\(R_b^c\)
+ &
+Rotation matrix
+ &
+\(R_b^c=\begin{bmatrix}r_x & r_y & r_z\end{bmatrix}\)
+ &
+
+\tabularnewline\hline
+\(t_{cb}^c\)
+ &
+Translation vector
+ &
+\(t_c^b=p^c-R_b^c*p^b\)
+ &
+
+\tabularnewline\hline
+\(\vec{E}_g\)
+ &
+Coordinate frame basis
+ &
+\(\vec{E}_g = \begin{bmatrix} \vec{e}_{g,x} & \vec{e}_{g,y} & \vec{e}_{g,z} \end{bmatrix}\)
+ &
+A coordinate frame consists of a basis and and an origin
+\tabularnewline\hline
+\(\vec{o}_g\)
+ &
+Origin of the coordinate frame
+ &
+\(\vec{o}\)
+ &
+
+\tabularnewline\hline
+\(\vec{p}\)
+ &
+Point in the coordinate frame
+ &
+\(\vec{p} = \vec{e}_{g,x} \cdotp p_x^g + \vec{e}_{g,y} \cdotp p_y^g + \vec{e}_{g,z} \cdotp p_z^g + \vec{o}_g\)
+ &
+
+\tabularnewline\hline
+\(\vec{p}\)
+ &
+Point in the coordinate frame
+ &
+\(\vec{p} = \vec{E}_g \cdotp p^g + \vec{o}_g\)
+ &
+
+\tabularnewline\hline
+\(H_b^c\)
+ &
+Homography matrix
+ &
+\(H_b^c \backsim\ K_c \cdotp \begin{bmatrix} r^c_{b,x} & r_{b,y}^c & t_{cb}^c \end{bmatrix}\)
+ &
+
+\tabularnewline\hline
+\(r_{b,x}^c\)
+ &
+Rotation vector x
+ &
+\(r_{b,x}^c = \begin{bmatrix} 0 & -t_{cb,z}^c & t_{cb,y}^c \end{bmatrix}\)
+ &
+
+\tabularnewline\hline
+
+ &
+Object point to image point
+ &
+\(\begin{bmatrix} x_{s,i} \\ y_{s,i} \\ 1 \end{bmatrix} = H_b^c \cdotp \tilde{p}_i^b\)
+ &
+
+\tabularnewline\hline
+\multicolumn{4}{c}{\textbf{Hough~transform}}
+\tabularnewline\hline
+\(x_i, y_i\)
+ &
+Image space coordinates
+ &
+\(y_i = m \cdotp x_i + c \Leftrightarrow c = - m \cdotp x_i + y_i\)
+ &
+Converted to parameter space, lines
+\tabularnewline\hline
+\(\theta\)
+ &
+Angle of point
+ &
+\(\theta\)
+ &
+angle between \(x\) and line in parameter space
+\tabularnewline\hline
+\(\rho\)
+ &
+Proper Line Parametrization
+ &
+\(\rho = x \cos(\theta) + y \sin(\theta)\)
+ &
+length of line
+\tabularnewline\hline
+\(\rho\)
+ &
+
+ &
+\(\rho =\begin{bmatrix}x \\ y\end{bmatrix}^t \cdot n\)
+ &
+Test if a point is on a line
+\tabularnewline\hline
+\(n\)
+ &
+normal vector
+ &
+\(n = \begin{bmatrix} \cos(\theta) \\ \sin(\theta)\end{bmatrix}\)
+ &
+Defined by the \(\theta\) angle
+\tabularnewline\hline
+\multicolumn{4}{c}{\textbf{RANSAC~probabilities}}
+\tabularnewline\hline
+\(\epsilon\)
+ &
+Probability of picking an outlier
+ &
+\(\epsilon = \dfrac{N_{outliers}}{N_{inliers} + N_{outliers}}\)
+ &
+with \(N\) = no of, \(s\) = points, \(n\) = no. of trials
+\tabularnewline\hline
+
+ &
+probability of picking individual inlier
+ &
+\(p=1-\epsilon\)
+ &
+
+\tabularnewline\hline
+
+ &
+probability of picking \(s\) inliers in sequence
+ &
+\(p=(1-\epsilon)^s\)
+ &
+
+\tabularnewline\hline
+
+ &
+probability of not picking \(s\) inliers in sequence
+ &
+\(p=1-(1-\epsilon)^s\)
+ &
+
+\tabularnewline\hline
+
+ &
+probability of not picking \(s\) inliers in sequence of \(n\)
+trials
+ &
+\(p=(1-(1-\epsilon)^s)^n\)
+ &
+
+\tabularnewline\hline
+
+ &
+probability of picking at least in one of \(n\) trials \(s\) inliers in
+sequence
+ &
+\(p_{success}=1-(1-(1-\epsilon)^s)^n\)
+ &
+for lines 2 , for circles 3 points are needed
+\tabularnewline\hline
+
+ &
+expected number of trials needed
+ &
+\(n=\dfrac{log(1-p_{success})}{log(1-(1-\epsilon)^s)}\)
+ &
+
+\tabularnewline\hline
+\multicolumn{4}{c}{\textbf{Geometric transformation}}
+\tabularnewline\hline
+\(\tilde{x}\)
+ &
+Intersection of two lines
+ &
+\(\tilde{x}=\tilde{I_1}\times \tilde{I_2}\)
+ &
+cross product of two lines defines their intersection
+\tabularnewline\hline
+\(\tilde{I}\)
+ &
+two points lie on the line
+ &
+\(\tilde{I}=\tilde{x_1}\times \tilde{x_2}\)
+ &
+cross product of two points define their collective line
+\tabularnewline\hline
+\multicolumn{4}{c}{\textbf{Matrix basics}}
+\tabularnewline\hline
+\(E\)
+ &
+unit matrix
+ &
+\(\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}\)
+ &
+
+\tabularnewline\hline
+\(R^{-1}\)
+ &
+Inverse rotational matrix
+ &
+\(R^{-1} = R^T\)
+ &
+
+\tabularnewline\hline
+\(R_x\)
+ &
+Rotational matrix around x
+ &
+\(R_x=\begin{bmatrix} 1&0&0\\0&\cos&-\sin\\0&\sin&\cos \end{bmatrix}\)
+ &
+
+\tabularnewline\hline
+\(R_y\)
+ &
+Rotational matrix around x
+ &
+\(R_y=\begin{bmatrix} \cos&0&\sin\\0&1&0\\-\sin&0&\cos \end{bmatrix}\)
+ &
+
+\tabularnewline\hline
+\(R_z\)
+ &
+Rotational matrix around x
+ &
+\(R_z=\begin{bmatrix} \cos&-\sin&0\\\sin&\cos&0\\0&0&1 \end{bmatrix}\)
+ &
+
+\tabularnewline\hline
+\multicolumn{4}{c}{\textbf{Camera calculations}}
+\tabularnewline\hline
+\(F\)
+ &
+Focal length in {[}\(mm\){]}
+ &
+\(F=\dfrac{L*x_{chip}}{2*W}\)
+ &
+\(L=\) Length from sensor to object, \(W=\) Width from sensor to object,
+all in {[}\(mm\){]}
+\tabularnewline\hline
+\(f_x\)
+ &
+Focal length in {[}\(\dfrac{pixel}{mm}\){]}
+ &
+\(f_x = \dfrac{F*x_{pixel}}{x_{chip}}\)
+ &
+\(x_{pixel}=\) pixel in \(x\)-direction \(x_{chip}=\) length of sensor
+chip in \(x\)-direction, analog for \(f_y\) with \(y_{pixel}\) and
+\(y_{chip}\)
+\tabularnewline\hline
+\(f_x, f_y\)
+ &
+Focal length (Assumption)
+ &
+\(f_x = f_y = f\)
+ &
+In some calcuations just assume: focal length is the same in both
+directions
+\tabularnewline\hline
+\(c_x, c_y\)
+ &
+image center coordinates
+ &
+\(c_x=\dfrac{x_{pixel}}{2}\)
+ &
+optical axis pointing perpendicularly through sensor chip center, analog
+for \(f_y\) with \(y_{pixel}\) and \(y_{chip}\)
+\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{document}
